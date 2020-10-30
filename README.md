@@ -4,11 +4,12 @@
 Входные данные:
 Имеется текстовый файл. В каждой строке записано имя хоста
 варианты:
-https://hostname
-https://hostname/
-https://hostname/blabl
-hostname/
-hostname/blabla
+
+    https://hostname
+    https://hostname/
+    https://hostname/blabl
+    hostname/
+    hostname/blabla
 
 
 Выходные данные:
