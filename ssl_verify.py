@@ -107,8 +107,7 @@ def main(file):
 def exec_loop_call(hosts):
     loop = asyncio.get_event_loop()
 
-    tasks = [loop.run_in_executor(None, get_certificate, x)
-             for x in hosts]
+    tasks = [loop.run_in_executor(None, get_certificate, x) for x in hosts]
 
     (finished, unfinished) = loop.run_until_complete(asyncio.wait(tasks))
     loop.close()
