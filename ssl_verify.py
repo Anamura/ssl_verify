@@ -50,10 +50,12 @@ def basic_info(certificate, host):
             ssl_validity = "Couldn't find certificate for %s" % host
             continue
         cert = cert_chain[0]
-        expires = datetime.datetime.strptime(cert.get_notAfter().decode('ascii'), '%Y%m%d%H%M%SZ')
+        expires = datetime.datetime.strptime(
+            cert.get_notAfter().decode('ascii'), '%Y%m%d%H%M%SZ')
         if expires:
-            delta = ((expires - datetime.datetime.utcnow()) // 60 // 10 ** 6) * 60 * 10 ** 6
-            ssl_validity = "The certificate will expire in %s" % delta
+            t = ((expires - datetime.datetime.utcnow())
+                 // 60 // 10 ** 6) * 60 * 10 ** 6
+            ssl_validity = "The certificate will expire in %s" % t
     return (ssl_validity)
 
 
