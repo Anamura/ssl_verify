@@ -62,7 +62,7 @@ def basic_info(certificate, host):
 def get_basic_info(hosts, certs):
     result = []
     for host in hosts:
-        certificate = [(i, certs[i]) for i in hosts]
+        certificate = [(host, certs[host])]
         ssl_validity = basic_info(certificate, host)
         result.append((''.join(host), ssl_validity))
     return result
